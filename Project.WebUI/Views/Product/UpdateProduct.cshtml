@@ -1,0 +1,57 @@
+﻿@model Product
+@{
+    ViewBag.Title = "UpdateProduct";
+}
+
+<h2>UpdateProduct</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="well well-sm">
+                @using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <fieldset>
+                        <legend class="text-center">Ürün Güncelle</legend>
+                        @Html.HiddenFor(x=>x.ID)
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="ProductName">Ürün Adı:</label>
+                            @*@Html.TextBox("CategoryName") Bu şekilde de yapılabilir. Parantez içerisinde yazan değer, property adıdır.*@
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", id = "ProductName" })
+                                @Html.ValidationMessageFor(x => x.ProductName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="UnitPrice">Ürün Fiyatı:</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control ", id = "UnitPrice", type = "number" })
+                                @Html.ValidationMessageFor(x => x.UnitPrice)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="UnitsInStock">Stok:</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control ", id = "UnitsInStock", type = "number" })
+                                @Html.ValidationMessageFor(x => x.UnitsInStock)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="CategoryList">Kategori:</label>
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(x => x.CategoryID, new SelectList(ViewBag.CategoryList, "ID", "CategoryName"), "Lütfen Seçiniz", new { @class = "form-control ", id = "CategoryList" })
+                                @Html.ValidationMessageFor(x => x.CategoryID)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                @*<input type="submit"  /> şeklinde de form butonu oluşturulur. Tipi mutlaka submit olmalıdır.*@
+                                <button class="btn btn-primary">Güncelle</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

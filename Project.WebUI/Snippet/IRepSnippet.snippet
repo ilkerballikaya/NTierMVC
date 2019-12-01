@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Repository Interface Modülü</Title>
+    <Author>İlker BALLIKAYA</Author>
+    <Shortcut>irep</Shortcut>
+    <Description>IRepository interface'ini tamamlar</Description>
+    <SnippetTypes>
+      <SnippetType>SurroundsWith</SnippetType>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>name</ID>
+        <Default>value</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[
+      
+        //Listeleme 
+        List<T> GetAll();
+        List<T> GetPassives();
+        List<T> GetActives();
+        List<T> GetModifieds();
+
+        //Modifikasyon
+        void Add(T item);
+        void Delete(T item);
+        void Update(T item);
+        void Destroy(T item);
+
+        //Sorgulamalar
+        List<T> Where(Expression<Func<T, bool>> exp);
+        bool Any(Expression<Func<T, bool>> exp);
+        T FirstOrDefault(Expression<Func<T, bool>> exp);
+        T Find(int id);
+        object Select(Expression<Func<T, object>> exp);
+      
+      ]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

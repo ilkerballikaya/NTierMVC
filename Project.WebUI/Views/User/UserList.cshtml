@@ -1,0 +1,47 @@
+﻿@model List<AppUser>
+@{
+    ViewBag.Title = "UserList";
+}
+
+<h2>UserList</h2>
+
+<div class="jumbotron">
+    Yeni Kullanıcı Eklemek İçin @Html.ActionLink("Tıklayınız", "AddUser", "User")
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel panel-body">
+        <table class="table table-hover">
+            <thead>
+                @Html.ActionLink("Kullanıcı Ekle", "AddUser", null, new { @class = "btn btn-primary btn-xs pull-right" })
+                <tr>
+                    <th>UserName</th>
+                    <th>Password</th>
+                    <th>Veri Durumu</th>
+                    <th class="text-center">Profil</th>
+                    <th class="text-center">Güncelle</th>
+                    <th class="text-center">Sil</th>
+                </tr>
+            </thead>
+            @foreach (AppUser u in Model)
+            {
+        <tr>
+            <td>@u.UserName</td>
+            <td>@u.Password</td>
+            <td>@u.Status</td>
+            @if (u.Profile != null)
+            {
+                <td class="text-center">@Html.ActionLink("Profil Düzenle", "UpdateProfile", "User", new { id = u.Profile.ID }, new { @class = "btn btn-info" })</td>
+            }
+            else
+            {
+                <td class="text-center">@Html.ActionLink("Profili Ekle", "AddProfile", "User", new { id = u.ID }, new { @class = "btn btn-info" })</td>
+            }
+
+            <td class="text-center">@Html.ActionLink("Güncelle", "UpdateUser", "User", new { id = u.ID }, new { @class = "btn btn-warning" })</td>
+            <td class="text-center">@Html.ActionLink("Sil", "DeleteUser", "User", new { id = u.ID }, new { @class = "btn btn-danger" })</td>
+        </tr>
+            }
+        </table>
+    </div>
+</div>

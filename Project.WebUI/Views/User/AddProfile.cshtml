@@ -1,0 +1,63 @@
+﻿@model AppUserProfile
+@{
+    ViewBag.Title = "AddProfile";
+}
+
+<h2>AddProfile</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="well well-sm">
+                @using (Html.BeginForm("AddProfile", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <fieldset>
+                        <legend class="text-center">Profil Ekle</legend>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="UserName">Kullanıcı Adı:</label>
+                            @*@Html.TextBox("CategoryName") Bu şekilde de yapılabilir. Parantez içerisinde yazan değer, property adıdır.*@
+                            <div class="col-md-9">
+                                @Html.TextBox("UserName", (object)ViewBag.UserName, new { @class = "form-control", id = "UserName", disabled="true" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="FirstName">İsim:</label>
+                            @*@Html.TextBox("CategoryName") Bu şekilde de yapılabilir. Parantez içerisinde yazan değer, property adıdır.*@
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", id = "FirstName" })
+                                @Html.ValidationMessageFor(x => x.FirstName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="LastName">Soyisim:</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.LastName, new { @class = "form-control ", id = "LastName", type = "text" })
+                                @Html.ValidationMessageFor(x => x.LastName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Address">Adres:</label>
+                            <div class="col-md-9">
+                                @Html.TextAreaFor(x => x.Address, new { @class = "form-control ", id = "Address", type = "text" })
+                                @Html.ValidationMessageFor(x => x.Address)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Phone">Telefon:</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control ", id = "Phone", type = "text" })
+                                @Html.ValidationMessageFor(x => x.Phone)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                @*<input type="submit"  /> şeklinde de form butonu oluşturulur. Tipi mutlaka submit olmalıdır.*@
+                                <button class="btn btn-primary">Ekle</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                }
+            </div>
+        </div>
+    </div>
+</div>

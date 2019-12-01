@@ -1,0 +1,17 @@
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\Project.DAL.dll.config
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\Project.DAL.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\Project.DAL.pdb
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\EntityFramework.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\Project.MAP.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\Project.MODEL.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\Project.MAP.pdb
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\Project.MAP.dll.config
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\Project.MODEL.pdb
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\EntityFramework.xml
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\obj\Debug\Project.DAL.csprojAssemblyReference.cache
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\obj\Debug\Project.DAL.csproj.CoreCompileInputs.cache
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\obj\Debug\Project.DAL.csproj.CopyComplete
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\obj\Debug\Project.DAL.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.DAL\obj\Debug\Project.DAL.pdb

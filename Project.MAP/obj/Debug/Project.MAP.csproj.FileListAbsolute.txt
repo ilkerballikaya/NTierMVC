@@ -1,0 +1,14 @@
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\bin\Debug\Project.MAP.dll.config
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\bin\Debug\Project.MAP.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\bin\Debug\Project.MAP.pdb
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\bin\Debug\EntityFramework.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\bin\Debug\Project.MODEL.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\bin\Debug\Project.MODEL.pdb
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\bin\Debug\EntityFramework.xml
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\obj\Debug\Project.MAP.csprojAssemblyReference.cache
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\obj\Debug\Project.MAP.csproj.CoreCompileInputs.cache
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\obj\Debug\Project.MAP.csproj.CopyComplete
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\obj\Debug\Project.MAP.dll
+C:\Users\ilker\source\repos\NTierMVC\Project.MAP\obj\Debug\Project.MAP.pdb

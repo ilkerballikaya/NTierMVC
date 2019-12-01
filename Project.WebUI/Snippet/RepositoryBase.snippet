@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Repository Base Modülü</Title>
+    <Author>İlker BALLIKAYA</Author>
+    <Shortcut>brep</Shortcut>
+    <Description>Base Repository classını tamamlar</Description>
+    <SnippetTypes>
+      <SnippetType>SurroundsWith</SnippetType>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>name</ID>
+        <Default>NorthWindEntities</Default>
+      </Literal>
+      <Literal>
+        <ID>baseClassName</ID>
+        <Default>value</Default>
+      </Literal>
+      <Literal>
+        <ID>singleton</ID>
+        <Default>DBTool</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[
+      
+        protected $name$ db;
+        
+        public $baseClassName$()
+        {
+            db = $singleton$.DbInstance;
+        }
+
+
+        public void Add(T item)
+        {
+            db.Set<T>().Add(item);
+            Save();
+        }
+
+        protected void Save()
+        {
+            db.SaveChanges();
+        }
+
+        public bool Any(Expression<Func<T, bool>> exp)
+        {
+            return db.Set<T>().Any(exp);
+        }
+
+        public void Delete(T item)
+        {
+            item.Status = MODEL.Enums.DataStatus.Deleted;
+            item.DeletedDate = DateTime.Now;
+            Save();
+        }
+
+        public void Destroy(T item)
+        {
+            db.Set<T>().Remove(item);
+            Save();
+        }
+
+        public T Find(int id)
+        {
+            return db.Set<T>().Find(id);
+        }
+
+        public T FirstOrDefault(Expression<Func<T, bool>> exp)
+        {
+            return db.Set<T>().FirstOrDefault(exp);
+        }
+
+        public List<T> GetActives()
+        {
+            return Where(x => x.Status != MODEL.Enums.DataStatus.Deleted);
+        }
+
+        public List<T> GetAll()
+        {
+            return db.Set<T>().ToList();
+        }
+
+        public List<T> GetModifieds()
+        {
+            return Where(x => x.Status == MODEL.Enums.DataStatus.Updated);
+
+        }
+
+        public List<T> GetPassives()
+        {
+            return Where(x => x.Status == MODEL.Enums.DataStatus.Deleted);
+
+        }
+
+        public object Select(Expression<Func<T, object>> exp)
+        {
+            return db.Set<T>().Select(exp);
+        }
+
+        public void Update(T item)
+        {
+            T guncellenecek = Find(item.ID);
+            item.Status = MODEL.Enums.DataStatus.Updated;
+            item.ModifiedDate = DateTime.Now;
+            db.Entry(guncellenecek).CurrentValues.SetValues(item);
+            Save();
+        }
+
+        public List<T> Where(Expression<Func<T, bool>> exp)
+        {
+            return db.Set<T>().Where(exp).ToList();
+        }
+      
+      ]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

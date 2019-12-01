@@ -1,0 +1,38 @@
+﻿@model List<Category>
+@{
+    ViewBag.Title = "CategoryList";
+}
+
+<h2>CategoryList</h2>
+<div class="jumbotron">
+    Yeni Kategori Eklemek İçin @Html.ActionLink("Tıklayınız","AddCategory","Category")
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel panel-body">
+        <table class="table table-hover">
+            <thead>
+                @Html.ActionLink("Kategori Ekle", "AddCategory", null, new { @class = "btn btn-primary btn-xs pull-right" })
+                <tr>
+                    <th>Kategori Ismi</th>
+                    <th>Kategori Açıklaması</th>
+                    <th>Veri Durumu</th>
+                    <th class="text-center">Güncelle</th>
+                    <th class="text-center">Sil</th>
+                </tr>
+            </thead>
+            @foreach (Category c in Model)
+            {
+                <tr>
+                    <td>@c.CategoryName</td>
+                    <td>@c.Description</td>
+                    <td>@c.Status</td>
+                    <td class="text-center">@Html.ActionLink("Güncelle", "UpdateCategory","Category", new { id = c.ID }, new { @class = "btn btn-warning" })</td>
+                    <td class="text-center">@Html.ActionLink("Sil", "DeleteCategory","Category", new { id = c.ID }, new { @class = "btn btn-danger" })</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+

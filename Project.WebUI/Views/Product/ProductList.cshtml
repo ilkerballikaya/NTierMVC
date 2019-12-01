@@ -1,0 +1,47 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<h2>ProductList</h2>
+<div class="jumbotron">
+    Yeni Ürün Eklemek İçin @Html.ActionLink("Tıklayınız", "AddProduct", "Product")
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel panel-body">
+        <table class="table table-hover">
+            <thead>
+                @Html.ActionLink("Ürün Ekle", "AddProduct", null, new { @class = "btn btn-primary btn-xs pull-right" })
+                <tr>
+                    <th>Ürün Adı</th>
+                    <th>Ürün Fiyatı</th>
+                    <th>Stok Durumu</th>
+                    <th>Kategori</th>
+                    <th>Veri Durumu</th>
+                    <th class="text-center">Güncelle</th>
+                    <th class="text-center">Sil</th>
+                </tr>
+            </thead>
+            @foreach (Product p in Model)
+            {
+                <tr>
+                    <td>@p.ProductName</td>
+                    <td>@p.UnitPrice</td>
+                    @if (p.UnitsInStock > 0)
+                    {
+                        <td>@p.UnitsInStock</td>
+                    }
+                    else
+                    {
+                        <td>Stokta Yok</td>
+                    }
+                    <td>@p.Category.CategoryName</td>
+                    <td>@p.Status</td>
+                    <td class="text-center">@Html.ActionLink("Güncelle", "UpdateProduct", "Product", new { id = p.ID }, new { @class = "btn btn-warning" })</td>
+                    <td class="text-center">@Html.ActionLink("Sil", "DeleteProduct", "Product", new { id = p.ID }, new { @class = "btn btn-danger" })</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

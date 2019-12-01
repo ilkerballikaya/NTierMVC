@@ -1,0 +1,50 @@
+﻿@model AppUser
+@{
+    ViewBag.Title = "UpdateUser";
+}
+
+<h2>UpdateUser</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="well well-sm">
+                @using (Html.BeginForm("UpdateUser", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <fieldset>
+                        <legend class="text-center">Kullanıcı Güncelle</legend>
+                        @Html.HiddenFor(x=>x.ID)
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="UserName">Kullanıcı Adı:</label>
+                            @*@Html.TextBox("CategoryName") Bu şekilde de yapılabilir. Parantez içerisinde yazan değer, property adıdır.*@
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", id = "UserName" })
+                                @Html.ValidationMessageFor(x => x.UserName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Password">Şifre:</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control ", id = "Password", type = "text" })
+                                @Html.ValidationMessageFor(x => x.Password)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="RoleList">Rolü:</label>
+                            <div class="col-md-9">
+                                @Html.EnumDropDownListFor(m => m.Role, "Seçiniz", new { @class = "form-control ", id = "RoleList" })
+                                @Html.ValidationMessageFor(x => x.Role)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                @*<input type="submit"  /> şeklinde de form butonu oluşturulur. Tipi mutlaka submit olmalıdır.*@
+                                <button class="btn btn-primary">Güncelle</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model Category
+@{
+    ViewBag.Title = "AddCategory";
+}
+
+<h2>AddCategory</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="well well-sm">
+                @using (Html.BeginForm("AddCategory", "Category", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <fieldset>
+                        <legend class="text-center">Kategori Ekle</legend>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="CategoryName">Kategori Adı:</label>
+                            @*@Html.TextBox("CategoryName") Bu şekilde de yapılabilir. Parantez içerisinde yazan değer, property adıdır.*@
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", id = "CategoryName" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="Description">Açıklama:</label>
+                            <div class="col-md-9">
+                                @Html.TextAreaFor(x => x.Description, new { @class = "form-control ", id = "Description" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                @*<input type="submit"  /> şeklinde de form butonu oluşturulur. Tipi mutlaka submit olmalıdır.*@
+                                <button class="btn btn-primary">Ekle</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                }
+            </div>
+        </div>
+    </div>
+</div>
